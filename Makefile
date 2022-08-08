@@ -5,7 +5,7 @@
 export CGO_ENABLED=1
 export GO111MODULE=on
 
-build-tools:=$(shell if [ ! -d "./build/build-tools" ]; then mkdir build && cd build && git clone https://github.com/onosproject/build-tools.git; fi)
+build-tools:=$(shell if [ ! -d "./build/build-tools" ]; then mkdir -p build && cd build && git clone https://github.com/onosproject/build-tools.git; fi)
 include ./build/build-tools/make/onf-common.mk
 
 .PHONY: build
@@ -35,9 +35,8 @@ publish: # @HELP publish version on github and dockerhub
 
 jenkins-publish: jenkins-tools # @HELP Jenkins calls this to publish artifacts
 	./build/build-tools/release-merge-commit
-	./build/build-tools/build/docs/push-docs
 
 all: test
 
 clean:: # @HELP remove all the build artifacts
-	go clean -testcache github.com/onosproject/onos-lib-go/...
+	go clean -testcache github.com/onosproject/config-adapter/...
