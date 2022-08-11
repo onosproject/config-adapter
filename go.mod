@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/eapache/channels v1.1.0
+	github.com/golang/mock v1.6.0
 	github.com/golang/protobuf v1.5.2
 	github.com/google/gnxi v0.0.0-20210716134716-cb5c55758a07
 	github.com/gorilla/mux v1.8.0
